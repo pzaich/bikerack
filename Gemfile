@@ -6,7 +6,13 @@ gem 'rails', '3.2.3'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'twitter-bootstrap-rails'
 
+# This location is an issue for our long-term.  We should reach out to the Chute guys and ask why it has to be local.
+gem 'chute', :path => '~/Documents/workspace/rails_projects/chute-rails'
+
+# This is temporary based on Paul's auth decisions
+gem 'devise'
 
 # Gems used only for assets and not required
 # in production environments by default.
