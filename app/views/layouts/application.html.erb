@@ -1,14 +1,29 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Bikerack</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Bikerack" %></title>
+    <%= csrf_meta_tags %>
+	<%= render :partial => 'layouts/shim' %>
+	<%= render :partial => 'layouts/favicons' %>
+    <%= stylesheet_link_tag "application", :media => "all" %>
+  </head>
+  <body>
+	<%= render :partial => 'layouts/navbar' %>
 
-<%= yield %>
+    <div class="container-fluid">
+      <div class="row-fluid">
+		<%= render :partial => 'layouts/sidebar' %>
+        <div class="span9">
+		  <%= render :partial => 'layouts/flashes' %>
+          <%= yield %>
+        </div>
+      </div><!--/row-->
+	  <%= render :partial => 'layouts/footer' %>
+    </div> <!-- /container -->
 
-</body>
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>
